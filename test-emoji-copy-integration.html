@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Copy Integration Tests</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .console {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-top: 20px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+        .demo-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .demo-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .emoji-clickable {
+            background: #f0f0f0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            margin: 5px;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .emoji-clickable:hover {
+            background: #e0e0e0;
+            border-color: #6366f1;
+            transform: scale(1.1);
+        }
+        .recently-used-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            min-height: 60px;
+        }
+        .recently-used-empty {
+            color: #666;
+            font-style: italic;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .demo-controls {
+            margin: 10px 0;
+        }
+        .demo-controls button {
+            background: #6366f1;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .demo-controls button:hover {
+            background: #5856eb;
+        }
+        .feedback {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .feedback.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <h1>Emoji Copy Integration Tests</h1>
+    
+    <div class="info">
+        <strong>Testing:</strong> Integration between emoji copying and recently used tracking.
+        This includes clipboard functionality, recently used persistence, and UI components.
+    </div>
+
+    <div class="demo-section">
+        <h3>Interactive Demo</h3>
+        <p>Click on emojis below to copy them and see them appear in recently used:</p>
+        
+        <div class="demo-controls">
+            <button onclick="addTestEmoji('😀', 'grinning face')">Add 😀</button>
+            <button onclick="addTestEmoji('😃', 'grinning face with big eyes')">Add 😃</button>
+            <button onclick="addTestEmoji('😄', 'grinning face with smiling eyes')">Add 😄</button>
+            <button onclick="addTestEmoji('😁', 'beaming face with smiling eyes')">Add 😁</button>
+            <button onclick="clearRecentlyUsed()">Clear Recently Used</button>
+        </div>
+
+        <div id="test-emojis"></div>
+
+        <h4>Recently Used Emojis:</h4>
+        <div id="recently-used-container" class="recently-used-container">
+            <div class="recently-used-empty">No recently used emojis</div>
+        </div>
+
+        <div id="feedback"></div>
+    </div>
+
+    <div id="console" class="console">Loading tests...</div>
+
+    <script>
+        // Capture console output
+        const consoleDiv = document.getElementById('console');
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+
+        function appendToConsole(message, type = 'log') {
+            const colors = {
+                log: '#d4d4d4',
+                error: '#f48771',
+                warn: '#dcdcaa'
+            };
+            
+            const span = document.createElement('span');
+            span.style.color = colors[type];
+            span.textContent = message + '\n';
+            consoleDiv.appendChild(span);
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+
+        console.log = function(...args) {
+            appendToConsole(args.join(' '), 'log');
+            originalLog.apply(console, args);
+        };
+
+        console.error = function(...args) {
+            appendToConsole(args.join(' '), 'error');
+            originalError.apply(console, args);
+        };
+
+        console.warn = function(...args) {
+            appendToConsole(args.join(' '), 'warn');
+            originalWarn.apply(console, args);
+        };
+
+        // Clear initial message
+        consoleDiv.textContent = '';
+
+        // Demo functionality
+        let testEmojiContainer;
+        let recentlyUsedContainer;
+        let feedbackDiv;
+
+        function showFeedback(message, type = 'success') {
+            if (!feedbackDiv) return;
+            
+            feedbackDiv.className = `feedback ${type}`;
+            feedbackDiv.textContent = message;
+            feedbackDiv.style.display = 'block';
+            
+            setTimeout(() => {
+                feedbackDiv.style.display = 'none';
+            }, 3000);
+        }
+
+        async function addTestEmoji(unicode, name) {
+            try {
+                const emoji = {
+                    unicode: unicode,
+                    name: name,
+                    category: 'smileys-emotion',
+                    keywords: ['test', 'demo'],
+                    codepoint: unicode.codePointAt(0).toString(16).toUpperCase()
+                };
+
+                await EmojiCopyManager.copyEmoji(emoji);
+                updateRecentlyUsedDisplay();
+                showFeedback(`Copied ${unicode} (${name}) to clipboard!`, 'success');
+            } catch (error) {
+                showFeedback(`Failed to copy emoji: ${error.message}`, 'error');
+            }
+        }
+
+        async function clearRecentlyUsed() {
+            try {
+                EmojiCopyManager.clearRecentlyUsed();
+                updateRecentlyUsedDisplay();
+                showFeedback('Cleared recently used emojis', 'success');
+            } catch (error) {
+                showFeedback(`Failed to clear: ${error.message}`, 'error');
+            }
+        }
+
+        function updateRecentlyUsedDisplay() {
+            if (!recentlyUsedContainer) return;
+            
+            EmojiCopyManager.updateRecentlyUsedContainer(recentlyUsedContainer, {
+                emojiClass: 'emoji-clickable'
+            });
+        }
+
+        function initializeDemo() {
+            testEmojiContainer = document.getElementById('test-emojis');
+            recentlyUsedContainer = document.getElementById('recently-used-container');
+            feedbackDiv = document.getElementById('feedback');
+
+            // Create some test emojis
+            const testEmojis = [
+                { unicode: '😀', name: 'grinning face' },
+                { unicode: '😃', name: 'grinning face with big eyes' },
+                { unicode: '😄', name: 'grinning face with smiling eyes' },
+                { unicode: '😁', name: 'beaming face with smiling eyes' },
+                { unicode: '😆', name: 'grinning squinting face' }
+            ];
+
+            testEmojis.forEach(emoji => {
+                const element = EmojiCopyManager.createClickableEmoji(emoji, {
+                    className: 'emoji-clickable'
+                });
+                testEmojiContainer.appendChild(element);
+            });
+
+            // Listen for copy events
+            EmojiCopyManager.addCopyListener((eventType, data) => {
+                if (eventType === 'copy' && data.success) {
+                    updateRecentlyUsedDisplay();
+                }
+            });
+
+            // Listen for custom events
+            window.addEventListener('emoji-copied', (event) => {
+                console.log('Custom event received:', event.detail);
+            });
+        }
+
+        // Initialize when everything is loaded
+        window.addEventListener('load', () => {
+            setTimeout(initializeDemo, 500);
+        });
+    </script>
+
+    <!-- Load dependencies -->
+    <script src="js/recently-used.js"></script>
+    <script src="js/clipboard-manager.js"></script>
+    <script src="js/emoji-copy-manager.js"></script>
+    
+    <!-- Load and run tests -->
+    <script src="js/test-emoji-copy-integration.js"></script>
+</body>
+</html>

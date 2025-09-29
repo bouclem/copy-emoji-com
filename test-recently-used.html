@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RecentlyUsed Tests</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .console {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin-top: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .info {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 4px solid #2196f3;
+        }
+    </style>
+</head>
+<body>
+    <h1>RecentlyUsed Class Tests</h1>
+    
+    <div class="info">
+        <strong>Testing:</strong> RecentlyUsed class functionality including localStorage persistence, 
+        20-emoji limit, and all required methods.
+    </div>
+
+    <div id="console" class="console">Loading tests...</div>
+
+    <script>
+        // Capture console output
+        const consoleDiv = document.getElementById('console');
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+
+        function appendToConsole(message, type = 'log') {
+            const colors = {
+                log: '#d4d4d4',
+                error: '#f48771',
+                warn: '#dcdcaa'
+            };
+            
+            const span = document.createElement('span');
+            span.style.color = colors[type];
+            span.textContent = message + '\n';
+            consoleDiv.appendChild(span);
+            consoleDiv.scrollTop = consoleDiv.scrollHeight;
+        }
+
+        console.log = function(...args) {
+            appendToConsole(args.join(' '), 'log');
+            originalLog.apply(console, args);
+        };
+
+        console.error = function(...args) {
+            appendToConsole(args.join(' '), 'error');
+            originalError.apply(console, args);
+        };
+
+        console.warn = function(...args) {
+            appendToConsole(args.join(' '), 'warn');
+            originalWarn.apply(console, args);
+        };
+
+        // Clear initial message
+        consoleDiv.textContent = '';
+    </script>
+
+    <!-- Load the RecentlyUsed class -->
+    <script src="js/recently-used.js"></script>
+    
+    <!-- Load and run tests -->
+    <script src="js/test-recently-used.js"></script>
+</body>
+</html>
