@@ -1,308 +1,313 @@
 /**
- * RecentlyUsed - Manages recently used emojis with localStorage persistence
- * 
- * This class handles tracking, storing, and retrieving recently used emojis
- * with a maximum limit of 20 emojis and automatic persistence to localStorage.
+ * RecentlyUsedManager - Handles recently used emojis storage and display
  */
-
-class RecentlyUsed {
-    static #recentEmojis = [];
-    static #maxEmojis = 20;
-    static #storageKey = 'emoji-recently-used';
-    static #isLoaded = false;
-
-    /**
-     * Initialize the recently used system by loading from localStorage
-     * @returns {Promise<void>}
-     */
-    static async initialize() {
-        if (!this.#isLoaded) {
-            this.load();
-            this.#isLoaded = true;
-        }
+class RecentlyUsedManager {
+    constructor(containerElement, onEmojiClick) {
+        this.container = containerElement;
+        this.onEmojiClick = onEmojiClick || (() => {});
+        this.recentlyUsed = [];
+        this.maxItems = 20; // Maximum number of recently used emojis to store
+        this.storageKey = 'emoji-copy-recently-used';
+        
+        this.init();
     }
-
+    
     /**
-     * Add an emoji to the recently used list
-     * @param {Object} emoji - Emoji object with unicode, name, category, keywords, codepoint
-     * @returns {boolean} True if emoji was added successfully
+     * Initialize the recently used manager
      */
-    static add(emoji) {
-        if (!emoji || typeof emoji !== 'object') {
-            throw new Error('Invalid emoji object provided');
+    init() {
+        if (!this.container) {
+            console.error('RecentlyUsedManager: Container element not found');
+            return;
         }
-
-        // Validate required emoji properties
-        const requiredProps = ['unicode', 'name', 'category', 'keywords', 'codepoint'];
-        for (const prop of requiredProps) {
-            if (!emoji.hasOwnProperty(prop)) {
-                throw new Error(`Emoji object missing required property: ${prop}`);
-            }
-        }
-
-        // Ensure we're initialized
-        if (!this.#isLoaded) {
-            this.initialize();
-        }
-
-        // Create a clean copy of the emoji object
-        const emojiCopy = {
-            unicode: String(emoji.unicode),
-            name: String(emoji.name),
-            category: String(emoji.category),
-            keywords: Array.isArray(emoji.keywords) ? [...emoji.keywords] : [],
-            codepoint: String(emoji.codepoint),
-            timestamp: Date.now() // Add timestamp for tracking when it was used
-        };
-
-        // Remove emoji if it already exists (to move it to front)
-        this.#recentEmojis = this.#recentEmojis.filter(
-            existing => existing.unicode !== emojiCopy.unicode
-        );
-
-        // Add to the beginning of the array (most recent first)
-        this.#recentEmojis.unshift(emojiCopy);
-
-        // Enforce the maximum limit by removing oldest emojis
-        if (this.#recentEmojis.length > this.#maxEmojis) {
-            this.#recentEmojis = this.#recentEmojis.slice(0, this.#maxEmojis);
-        }
-
-        // Persist to localStorage
-        this.save();
-
-        return true;
+        
+        this.loadFromStorage();
+        this.render();
+        
+        console.log('RecentlyUsedManager initialized');
     }
-
-    /**
-     * Get all recently used emojis
-     * @returns {Array} Array of recently used emoji objects (most recent first)
-     */
-    static get() {
-        if (!this.#isLoaded) {
-            this.initialize();
-        }
-
-        // Return a copy to prevent external modification
-        return this.#recentEmojis.map(emoji => ({
-            unicode: emoji.unicode,
-            name: emoji.name,
-            category: emoji.category,
-            keywords: [...emoji.keywords],
-            codepoint: emoji.codepoint
-        }));
-    }
-
-    /**
-     * Get recently used emojis with limit
-     * @param {number} limit - Maximum number of emojis to return
-     * @returns {Array} Array of recently used emoji objects
-     */
-    static getWithLimit(limit) {
-        if (typeof limit !== 'number' || limit < 0) {
-            throw new Error('Limit must be a non-negative number');
-        }
-
-        const allRecent = this.get();
-        return allRecent.slice(0, limit);
-    }
-
-    /**
-     * Clear all recently used emojis
-     * @returns {boolean} True if cleared successfully
-     */
-    static clear() {
-        this.#recentEmojis = [];
-        this.save();
-        return true;
-    }
-
-    /**
-     * Check if an emoji is in the recently used list
-     * @param {string} unicode - Unicode character of the emoji
-     * @returns {boolean} True if emoji is in recently used list
-     */
-    static contains(unicode) {
-        if (!unicode || typeof unicode !== 'string') {
-            return false;
-        }
-
-        if (!this.#isLoaded) {
-            this.initialize();
-        }
-
-        return this.#recentEmojis.some(emoji => emoji.unicode === unicode);
-    }
-
-    /**
-     * Get the count of recently used emojis
-     * @returns {number} Number of emojis in recently used list
-     */
-    static getCount() {
-        if (!this.#isLoaded) {
-            this.initialize();
-        }
-
-        return this.#recentEmojis.length;
-    }
-
-    /**
-     * Remove a specific emoji from recently used list
-     * @param {string} unicode - Unicode character of the emoji to remove
-     * @returns {boolean} True if emoji was found and removed
-     */
-    static remove(unicode) {
-        if (!unicode || typeof unicode !== 'string') {
-            throw new Error('Invalid unicode provided');
-        }
-
-        if (!this.#isLoaded) {
-            this.initialize();
-        }
-
-        const initialLength = this.#recentEmojis.length;
-        this.#recentEmojis = this.#recentEmojis.filter(
-            emoji => emoji.unicode !== unicode
-        );
-
-        const wasRemoved = this.#recentEmojis.length < initialLength;
-        if (wasRemoved) {
-            this.save();
-        }
-
-        return wasRemoved;
-    }
-
-    /**
-     * Save recently used emojis to localStorage
-     * @returns {boolean} True if saved successfully
-     */
-    static save() {
-        try {
-            const dataToSave = {
-                emojis: this.#recentEmojis,
-                version: '1.0',
-                lastUpdated: Date.now()
-            };
-
-            localStorage.setItem(this.#storageKey, JSON.stringify(dataToSave));
-            return true;
-        } catch (error) {
-            console.error('Failed to save recently used emojis to localStorage:', error);
-            return false;
-        }
-    }
-
+    
     /**
      * Load recently used emojis from localStorage
-     * @returns {boolean} True if loaded successfully
      */
-    static load() {
+    loadFromStorage() {
         try {
-            const stored = localStorage.getItem(this.#storageKey);
-            if (!stored) {
-                this.#recentEmojis = [];
-                return true;
+            const stored = localStorage.getItem(this.storageKey);
+            if (stored) {
+                this.recentlyUsed = JSON.parse(stored);
+                // Validate the data structure
+                this.recentlyUsed = this.recentlyUsed.filter(item => 
+                    item && typeof item === 'object' && item.emoji && item.name
+                );
             }
-
-            const data = JSON.parse(stored);
-            
-            // Validate data structure
-            if (!data || !Array.isArray(data.emojis)) {
-                console.warn('Invalid recently used data format, resetting');
-                this.#recentEmojis = [];
-                return true;
-            }
-
-            // Validate and clean emoji objects
-            this.#recentEmojis = data.emojis
-                .filter(emoji => this.#isValidEmojiObject(emoji))
-                .slice(0, this.#maxEmojis); // Ensure we don't exceed limit
-
-            this.#isLoaded = true;
-            return true;
         } catch (error) {
-            console.error('Failed to load recently used emojis from localStorage:', error);
-            this.#recentEmojis = [];
-            return false;
+            console.error('Failed to load recently used emojis:', error);
+            this.recentlyUsed = [];
         }
     }
-
+    
     /**
-     * Validate if an object is a valid emoji object
-     * @private
-     * @param {Object} emoji - Object to validate
-     * @returns {boolean} True if valid emoji object
+     * Save recently used emojis to localStorage
      */
-    static #isValidEmojiObject(emoji) {
-        if (!emoji || typeof emoji !== 'object') {
-            return false;
+    saveToStorage() {
+        try {
+            localStorage.setItem(this.storageKey, JSON.stringify(this.recentlyUsed));
+        } catch (error) {
+            console.error('Failed to save recently used emojis:', error);
         }
-
-        const requiredProps = ['unicode', 'name', 'category', 'keywords', 'codepoint'];
-        return requiredProps.every(prop => emoji.hasOwnProperty(prop));
     }
-
+    
     /**
-     * Get storage information
-     * @returns {Object} Object containing storage stats
+     * Add an emoji to recently used
+     * @param {string} emoji - Emoji unicode
+     * @param {string} name - Emoji name
      */
-    static getStorageInfo() {
-        const stored = localStorage.getItem(this.#storageKey);
-        return {
-            hasData: !!stored,
-            dataSize: stored ? stored.length : 0,
-            emojiCount: this.getCount(),
-            maxEmojis: this.#maxEmojis,
-            storageKey: this.#storageKey
-        };
-    }
-
-    /**
-     * Set the maximum number of emojis to store (for testing purposes)
-     * @param {number} max - Maximum number of emojis
-     */
-    static setMaxEmojis(max) {
-        if (typeof max !== 'number' || max < 1) {
-            throw new Error('Max emojis must be a positive number');
+    addEmoji(emoji, name) {
+        if (!emoji || !name) {
+            console.error('Invalid emoji data provided');
+            return;
         }
-
-        this.#maxEmojis = max;
         
-        // Trim current list if it exceeds new limit
-        if (this.#recentEmojis.length > max) {
-            this.#recentEmojis = this.#recentEmojis.slice(0, max);
-            this.save();
+        const emojiData = {
+            emoji: emoji,
+            name: name,
+            timestamp: Date.now()
+        };
+        
+        // Remove if already exists (to move to front)
+        this.recentlyUsed = this.recentlyUsed.filter(item => item.emoji !== emoji);
+        
+        // Add to front
+        this.recentlyUsed.unshift(emojiData);
+        
+        // Limit to max items
+        if (this.recentlyUsed.length > this.maxItems) {
+            this.recentlyUsed = this.recentlyUsed.slice(0, this.maxItems);
+        }
+        
+        // Save and re-render
+        this.saveToStorage();
+        this.render();
+        
+        console.log('Added emoji to recently used:', emoji, name);
+    }
+    
+    /**
+     * Remove an emoji from recently used
+     * @param {string} emoji - Emoji unicode to remove
+     */
+    removeEmoji(emoji) {
+        this.recentlyUsed = this.recentlyUsed.filter(item => item.emoji !== emoji);
+        this.saveToStorage();
+        this.render();
+    }
+    
+    /**
+     * Clear all recently used emojis
+     */
+    clear() {
+        this.recentlyUsed = [];
+        this.saveToStorage();
+        this.render();
+    }
+    
+    /**
+     * Render the recently used emojis
+     */
+    render() {
+        if (this.recentlyUsed.length === 0) {
+            this.renderEmptyState();
+            return;
+        }
+        
+        const emojiButtons = this.recentlyUsed.map(item => 
+            this.createEmojiButton(item)
+        ).join('');
+        
+        this.container.innerHTML = emojiButtons;
+        this.addEventListeners();
+    }
+    
+    /**
+     * Create HTML for a recently used emoji button
+     * @param {Object} emojiData - Emoji data object
+     * @returns {string} HTML string for emoji button
+     */
+    createEmojiButton(emojiData) {
+        const { emoji, name } = emojiData;
+        
+        return `
+            <button 
+                class="emoji-button recently-used-emoji"
+                data-emoji="${emoji}"
+                data-name="${name}"
+                title="${name}"
+                aria-label="Copy ${name} emoji (recently used)"
+                role="listitem"
+            >
+                ${emoji}
+            </button>
+        `;
+    }
+    
+    /**
+     * Add event listeners to recently used emoji buttons
+     */
+    addEventListeners() {
+        const buttons = this.container.querySelectorAll('.recently-used-emoji');
+        
+        buttons.forEach(button => {
+            // Click handler
+            button.addEventListener('click', (event) => {
+                const emoji = event.currentTarget.dataset.emoji;
+                const name = event.currentTarget.dataset.name;
+                this.handleEmojiClick(emoji, name, event.currentTarget);
+            });
+            
+            // Keyboard support
+            button.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    const emoji = event.currentTarget.dataset.emoji;
+                    const name = event.currentTarget.dataset.name;
+                    this.handleEmojiClick(emoji, name, event.currentTarget);
+                }
+            });
+            
+            // Context menu for removal (right-click)
+            button.addEventListener('contextmenu', (event) => {
+                event.preventDefault();
+                const emoji = event.currentTarget.dataset.emoji;
+                this.showRemoveOption(emoji, event.currentTarget);
+            });
+        });
+    }
+    
+    /**
+     * Handle emoji button click
+     * @param {string} emoji - Emoji unicode
+     * @param {string} name - Emoji name
+     * @param {HTMLElement} buttonElement - Button element that was clicked
+     */
+    handleEmojiClick(emoji, name, buttonElement) {
+        // Add visual feedback
+        this.addClickFeedback(buttonElement);
+        
+        // Move to front of recently used (since it was used again)
+        this.addEmoji(emoji, name);
+        
+        // Notify parent component
+        this.onEmojiClick(emoji, name);
+    }
+    
+    /**
+     * Add visual feedback when emoji is clicked
+     * @param {HTMLElement} buttonElement - Button element
+     */
+    addClickFeedback(buttonElement) {
+        buttonElement.classList.add('clicked');
+        
+        setTimeout(() => {
+            buttonElement.classList.remove('clicked');
+        }, 200);
+    }
+    
+    /**
+     * Show option to remove emoji from recently used
+     * @param {string} emoji - Emoji to remove
+     * @param {HTMLElement} buttonElement - Button element
+     */
+    showRemoveOption(emoji, buttonElement) {
+        // Simple confirmation for now
+        const emojiData = this.recentlyUsed.find(item => item.emoji === emoji);
+        if (emojiData && confirm(`Remove ${emojiData.name} from recently used?`)) {
+            this.removeEmoji(emoji);
         }
     }
-
+    
     /**
-     * Get the maximum number of emojis that can be stored
-     * @returns {number} Maximum emoji limit
+     * Render empty state when no recently used emojis
      */
-    static getMaxEmojis() {
-        return this.#maxEmojis;
+    renderEmptyState() {
+        this.container.innerHTML = `
+            <div class="recently-used-empty" role="status">
+                <span class="empty-text">Recently used emojis will appear here</span>
+            </div>
+        `;
     }
-
+    
     /**
-     * Reset the recently used system (for testing purposes)
+     * Get recently used emojis
+     * @returns {Array} Array of recently used emoji objects
      */
-    static reset() {
-        this.#recentEmojis = [];
-        this.#isLoaded = false;
+    getRecentlyUsed() {
+        return [...this.recentlyUsed];
+    }
+    
+    /**
+     * Get recently used count
+     * @returns {number} Number of recently used emojis
+     */
+    getCount() {
+        return this.recentlyUsed.length;
+    }
+    
+    /**
+     * Check if an emoji is in recently used
+     * @param {string} emoji - Emoji unicode to check
+     * @returns {boolean} True if emoji is in recently used
+     */
+    hasEmoji(emoji) {
+        return this.recentlyUsed.some(item => item.emoji === emoji);
+    }
+    
+    /**
+     * Set maximum number of items to store
+     * @param {number} max - Maximum number of items
+     */
+    setMaxItems(max) {
+        if (max > 0) {
+            this.maxItems = max;
+            
+            // Trim if necessary
+            if (this.recentlyUsed.length > this.maxItems) {
+                this.recentlyUsed = this.recentlyUsed.slice(0, this.maxItems);
+                this.saveToStorage();
+                this.render();
+            }
+        }
+    }
+    
+    /**
+     * Export recently used data (for backup/sync)
+     * @returns {string} JSON string of recently used data
+     */
+    exportData() {
+        return JSON.stringify(this.recentlyUsed);
+    }
+    
+    /**
+     * Import recently used data (for backup/sync)
+     * @param {string} jsonData - JSON string of recently used data
+     */
+    importData(jsonData) {
         try {
-            localStorage.removeItem(this.#storageKey);
+            const imported = JSON.parse(jsonData);
+            if (Array.isArray(imported)) {
+                this.recentlyUsed = imported.filter(item => 
+                    item && typeof item === 'object' && item.emoji && item.name
+                ).slice(0, this.maxItems);
+                
+                this.saveToStorage();
+                this.render();
+            }
         } catch (error) {
-            console.error('Failed to remove recently used data from localStorage:', error);
+            console.error('Failed to import recently used data:', error);
         }
     }
 }
 
-// Export for module usage or testing
+// Export for use in other modules
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = RecentlyUsed;
+    module.exports = RecentlyUsedManager;
 }
-
-// Make available globally
-window.RecentlyUsed = RecentlyUsed;
-console.log('RecentlyUsed class loaded successfully');

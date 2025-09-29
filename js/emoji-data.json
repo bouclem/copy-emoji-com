@@ -4,632 +4,1520 @@
       "unicode": "😀",
       "name": "grinning face",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "grin", "joy"],
+      "keywords": [
+        "happy",
+        "smile",
+        "grin",
+        "joy"
+      ],
       "codepoint": "1F600"
     },
     {
       "unicode": "😃",
       "name": "grinning face with big eyes",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "grin", "joy", "excited"],
+      "keywords": [
+        "happy",
+        "smile",
+        "grin",
+        "joy",
+        "excited"
+      ],
       "codepoint": "1F603"
     },
     {
       "unicode": "😄",
       "name": "grinning face with smiling eyes",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "grin", "joy", "laugh"],
+      "keywords": [
+        "happy",
+        "smile",
+        "grin",
+        "joy",
+        "laugh"
+      ],
       "codepoint": "1F604"
     },
     {
       "unicode": "😁",
       "name": "beaming face with smiling eyes",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "grin", "joy", "cheerful"],
+      "keywords": [
+        "happy",
+        "smile",
+        "grin",
+        "joy",
+        "cheerful"
+      ],
       "codepoint": "1F601"
     },
     {
       "unicode": "😆",
       "name": "grinning squinting face",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "laugh", "satisfied"],
+      "keywords": [
+        "happy",
+        "smile",
+        "laugh",
+        "satisfied"
+      ],
       "codepoint": "1F606"
     },
     {
       "unicode": "😅",
       "name": "grinning face with sweat",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "relief", "nervous"],
+      "keywords": [
+        "happy",
+        "smile",
+        "relief",
+        "nervous"
+      ],
       "codepoint": "1F605"
     },
     {
       "unicode": "🤣",
       "name": "rolling on the floor laughing",
       "category": "smileys-emotion",
-      "keywords": ["laugh", "funny", "hilarious", "rofl"],
+      "keywords": [
+        "laugh",
+        "funny",
+        "hilarious",
+        "rofl"
+      ],
       "codepoint": "1F923"
     },
     {
       "unicode": "😂",
       "name": "face with tears of joy",
       "category": "smileys-emotion",
-      "keywords": ["laugh", "cry", "funny", "tears"],
+      "keywords": [
+        "laugh",
+        "cry",
+        "funny",
+        "tears"
+      ],
       "codepoint": "1F602"
     },
     {
       "unicode": "🙂",
       "name": "slightly smiling face",
       "category": "smileys-emotion",
-      "keywords": ["smile", "happy", "content"],
+      "keywords": [
+        "smile",
+        "happy",
+        "content"
+      ],
       "codepoint": "1F642"
     },
     {
       "unicode": "🙃",
       "name": "upside-down face",
       "category": "smileys-emotion",
-      "keywords": ["silly", "sarcastic", "ironic"],
+      "keywords": [
+        "silly",
+        "sarcastic",
+        "ironic"
+      ],
       "codepoint": "1F643"
     },
     {
       "unicode": "😉",
       "name": "winking face",
       "category": "smileys-emotion",
-      "keywords": ["wink", "flirt", "playful"],
+      "keywords": [
+        "wink",
+        "flirt",
+        "playful"
+      ],
       "codepoint": "1F609"
     },
     {
       "unicode": "😊",
       "name": "smiling face with smiling eyes",
       "category": "smileys-emotion",
-      "keywords": ["happy", "smile", "blush", "content"],
+      "keywords": [
+        "happy",
+        "smile",
+        "blush",
+        "content"
+      ],
       "codepoint": "1F60A"
     },
     {
       "unicode": "😇",
       "name": "smiling face with halo",
       "category": "smileys-emotion",
-      "keywords": ["angel", "innocent", "good"],
+      "keywords": [
+        "angel",
+        "innocent",
+        "good"
+      ],
       "codepoint": "1F607"
     },
     {
       "unicode": "🥰",
       "name": "smiling face with hearts",
       "category": "smileys-emotion",
-      "keywords": ["love", "hearts", "adore", "crush"],
+      "keywords": [
+        "love",
+        "hearts",
+        "adore",
+        "crush"
+      ],
       "codepoint": "1F970"
     },
     {
       "unicode": "😍",
       "name": "smiling face with heart-eyes",
       "category": "smileys-emotion",
-      "keywords": ["love", "heart", "eyes", "adore"],
+      "keywords": [
+        "love",
+        "heart",
+        "eyes",
+        "adore"
+      ],
       "codepoint": "1F60D"
     },
     {
       "unicode": "🤩",
       "name": "star-struck",
       "category": "smileys-emotion",
-      "keywords": ["star", "eyes", "amazed", "wow"],
+      "keywords": [
+        "star",
+        "eyes",
+        "amazed",
+        "wow"
+      ],
       "codepoint": "1F929"
     },
     {
       "unicode": "😘",
       "name": "face blowing a kiss",
       "category": "smileys-emotion",
-      "keywords": ["kiss", "love", "heart"],
+      "keywords": [
+        "kiss",
+        "love",
+        "heart"
+      ],
       "codepoint": "1F618"
     },
     {
       "unicode": "😗",
       "name": "kissing face",
       "category": "smileys-emotion",
-      "keywords": ["kiss", "love", "lips"],
+      "keywords": [
+        "kiss",
+        "love",
+        "lips"
+      ],
       "codepoint": "1F617"
     },
     {
       "unicode": "☺️",
       "name": "smiling face",
       "category": "smileys-emotion",
-      "keywords": ["smile", "happy", "content"],
+      "keywords": [
+        "smile",
+        "happy",
+        "content"
+      ],
       "codepoint": "263A"
     },
     {
       "unicode": "😚",
       "name": "kissing face with closed eyes",
       "category": "smileys-emotion",
-      "keywords": ["kiss", "love", "closed", "eyes"],
+      "keywords": [
+        "kiss",
+        "love",
+        "closed",
+        "eyes"
+      ],
       "codepoint": "1F61A"
     },
     {
-
       "unicode": "🐶",
       "name": "dog face",
       "category": "animals-nature",
-      "keywords": ["dog", "pet", "animal", "puppy"],
+      "keywords": [
+        "dog",
+        "pet",
+        "animal",
+        "puppy"
+      ],
       "codepoint": "1F436"
     },
     {
       "unicode": "🐱",
       "name": "cat face",
       "category": "animals-nature",
-      "keywords": ["cat", "pet", "animal", "kitten"],
+      "keywords": [
+        "cat",
+        "pet",
+        "animal",
+        "kitten"
+      ],
       "codepoint": "1F431"
     },
     {
       "unicode": "🐭",
       "name": "mouse face",
       "category": "animals-nature",
-      "keywords": ["mouse", "animal", "rodent"],
+      "keywords": [
+        "mouse",
+        "animal",
+        "rodent"
+      ],
       "codepoint": "1F42D"
     },
     {
       "unicode": "🐹",
       "name": "hamster",
       "category": "animals-nature",
-      "keywords": ["hamster", "pet", "animal", "rodent"],
+      "keywords": [
+        "hamster",
+        "pet",
+        "animal",
+        "rodent"
+      ],
       "codepoint": "1F439"
     },
     {
       "unicode": "🐰",
       "name": "rabbit face",
       "category": "animals-nature",
-      "keywords": ["rabbit", "bunny", "animal", "pet"],
+      "keywords": [
+        "rabbit",
+        "bunny",
+        "animal",
+        "pet"
+      ],
       "codepoint": "1F430"
     },
     {
       "unicode": "🦊",
       "name": "fox",
       "category": "animals-nature",
-      "keywords": ["fox", "animal", "wild"],
+      "keywords": [
+        "fox",
+        "animal",
+        "wild"
+      ],
       "codepoint": "1F98A"
     },
     {
       "unicode": "🐻",
       "name": "bear",
       "category": "animals-nature",
-      "keywords": ["bear", "animal", "wild"],
+      "keywords": [
+        "bear",
+        "animal",
+        "wild"
+      ],
       "codepoint": "1F43B"
     },
     {
       "unicode": "🐼",
       "name": "panda",
       "category": "animals-nature",
-      "keywords": ["panda", "bear", "animal", "cute"],
+      "keywords": [
+        "panda",
+        "bear",
+        "animal",
+        "cute"
+      ],
       "codepoint": "1F43C"
     },
     {
       "unicode": "🐨",
       "name": "koala",
       "category": "animals-nature",
-      "keywords": ["koala", "animal", "australia"],
+      "keywords": [
+        "koala",
+        "animal",
+        "australia"
+      ],
       "codepoint": "1F428"
     },
     {
       "unicode": "🐯",
       "name": "tiger face",
       "category": "animals-nature",
-      "keywords": ["tiger", "animal", "wild", "cat"],
+      "keywords": [
+        "tiger",
+        "animal",
+        "wild",
+        "cat"
+      ],
       "codepoint": "1F42F"
     },
     {
       "unicode": "🍎",
       "name": "red apple",
       "category": "food-drink",
-      "keywords": ["apple", "fruit", "red", "healthy"],
+      "keywords": [
+        "apple",
+        "fruit",
+        "red",
+        "healthy"
+      ],
       "codepoint": "1F34E"
     },
     {
       "unicode": "🍊",
       "name": "tangerine",
       "category": "food-drink",
-      "keywords": ["orange", "fruit", "citrus"],
+      "keywords": [
+        "orange",
+        "fruit",
+        "citrus"
+      ],
       "codepoint": "1F34A"
     },
     {
       "unicode": "🍋",
       "name": "lemon",
       "category": "food-drink",
-      "keywords": ["lemon", "fruit", "citrus", "yellow"],
+      "keywords": [
+        "lemon",
+        "fruit",
+        "citrus",
+        "yellow"
+      ],
       "codepoint": "1F34B"
     },
     {
       "unicode": "🍌",
       "name": "banana",
       "category": "food-drink",
-      "keywords": ["banana", "fruit", "yellow"],
+      "keywords": [
+        "banana",
+        "fruit",
+        "yellow"
+      ],
       "codepoint": "1F34C"
     },
     {
       "unicode": "🍉",
       "name": "watermelon",
       "category": "food-drink",
-      "keywords": ["watermelon", "fruit", "summer"],
+      "keywords": [
+        "watermelon",
+        "fruit",
+        "summer"
+      ],
       "codepoint": "1F349"
     },
     {
       "unicode": "🍇",
       "name": "grapes",
       "category": "food-drink",
-      "keywords": ["grapes", "fruit", "wine"],
+      "keywords": [
+        "grapes",
+        "fruit",
+        "wine"
+      ],
       "codepoint": "1F347"
     },
     {
       "unicode": "🍓",
       "name": "strawberry",
       "category": "food-drink",
-      "keywords": ["strawberry", "fruit", "berry", "red"],
+      "keywords": [
+        "strawberry",
+        "fruit",
+        "berry",
+        "red"
+      ],
       "codepoint": "1F353"
     },
     {
       "unicode": "🫐",
       "name": "blueberries",
       "category": "food-drink",
-      "keywords": ["blueberry", "fruit", "berry", "blue"],
+      "keywords": [
+        "blueberry",
+        "fruit",
+        "berry",
+        "blue"
+      ],
       "codepoint": "1FAD0"
     },
     {
       "unicode": "🍑",
       "name": "cherries",
       "category": "food-drink",
-      "keywords": ["cherry", "fruit", "red"],
+      "keywords": [
+        "cherry",
+        "fruit",
+        "red"
+      ],
       "codepoint": "1F351"
     },
     {
       "unicode": "🥭",
       "name": "mango",
       "category": "food-drink",
-      "keywords": ["mango", "fruit", "tropical"],
+      "keywords": [
+        "mango",
+        "fruit",
+        "tropical"
+      ],
       "codepoint": "1F96D"
     },
     {
       "unicode": "⚽",
       "name": "soccer ball",
       "category": "activities",
-      "keywords": ["soccer", "football", "ball", "sport"],
+      "keywords": [
+        "soccer",
+        "football",
+        "ball",
+        "sport"
+      ],
       "codepoint": "26BD"
     },
     {
       "unicode": "🏀",
       "name": "basketball",
       "category": "activities",
-      "keywords": ["basketball", "ball", "sport"],
+      "keywords": [
+        "basketball",
+        "ball",
+        "sport"
+      ],
       "codepoint": "1F3C0"
     },
     {
       "unicode": "🏈",
       "name": "american football",
       "category": "activities",
-      "keywords": ["football", "american", "ball", "sport"],
+      "keywords": [
+        "football",
+        "american",
+        "ball",
+        "sport"
+      ],
       "codepoint": "1F3C8"
     },
     {
       "unicode": "⚾",
       "name": "baseball",
       "category": "activities",
-      "keywords": ["baseball", "ball", "sport"],
+      "keywords": [
+        "baseball",
+        "ball",
+        "sport"
+      ],
       "codepoint": "26BE"
     },
     {
       "unicode": "🥎",
       "name": "softball",
       "category": "activities",
-      "keywords": ["softball", "ball", "sport"],
+      "keywords": [
+        "softball",
+        "ball",
+        "sport"
+      ],
       "codepoint": "1F94E"
     },
     {
       "unicode": "🎾",
       "name": "tennis",
       "category": "activities",
-      "keywords": ["tennis", "ball", "sport"],
+      "keywords": [
+        "tennis",
+        "ball",
+        "sport"
+      ],
       "codepoint": "1F3BE"
     },
     {
       "unicode": "🏐",
       "name": "volleyball",
       "category": "activities",
-      "keywords": ["volleyball", "ball", "sport"],
+      "keywords": [
+        "volleyball",
+        "ball",
+        "sport"
+      ],
       "codepoint": "1F3D0"
     },
     {
       "unicode": "🏉",
       "name": "rugby football",
       "category": "activities",
-      "keywords": ["rugby", "football", "ball", "sport"],
+      "keywords": [
+        "rugby",
+        "football",
+        "ball",
+        "sport"
+      ],
       "codepoint": "1F3C9"
     },
     {
       "unicode": "🥏",
       "name": "flying disc",
       "category": "activities",
-      "keywords": ["frisbee", "disc", "sport"],
+      "keywords": [
+        "frisbee",
+        "disc",
+        "sport"
+      ],
       "codepoint": "1F94F"
     },
     {
       "unicode": "🎱",
       "name": "pool 8 ball",
       "category": "activities",
-      "keywords": ["pool", "billiards", "8", "ball"],
+      "keywords": [
+        "pool",
+        "billiards",
+        "8",
+        "ball"
+      ],
       "codepoint": "1F3B1"
     },
     {
       "unicode": "🚗",
       "name": "automobile",
       "category": "travel-places",
-      "keywords": ["car", "vehicle", "drive"],
+      "keywords": [
+        "car",
+        "vehicle",
+        "drive"
+      ],
       "codepoint": "1F697"
     },
     {
       "unicode": "🚕",
       "name": "taxi",
       "category": "travel-places",
-      "keywords": ["taxi", "car", "vehicle", "cab"],
+      "keywords": [
+        "taxi",
+        "car",
+        "vehicle",
+        "cab"
+      ],
       "codepoint": "1F695"
     },
     {
       "unicode": "🚙",
       "name": "sport utility vehicle",
       "category": "travel-places",
-      "keywords": ["suv", "car", "vehicle"],
+      "keywords": [
+        "suv",
+        "car",
+        "vehicle"
+      ],
       "codepoint": "1F699"
     },
     {
       "unicode": "🚌",
       "name": "bus",
       "category": "travel-places",
-      "keywords": ["bus", "vehicle", "transport"],
+      "keywords": [
+        "bus",
+        "vehicle",
+        "transport"
+      ],
       "codepoint": "1F68C"
     },
     {
       "unicode": "🚎",
       "name": "trolleybus",
       "category": "travel-places",
-      "keywords": ["trolley", "bus", "vehicle"],
+      "keywords": [
+        "trolley",
+        "bus",
+        "vehicle"
+      ],
       "codepoint": "1F68E"
     },
     {
       "unicode": "🏎️",
       "name": "racing car",
       "category": "travel-places",
-      "keywords": ["race", "car", "fast", "speed"],
+      "keywords": [
+        "race",
+        "car",
+        "fast",
+        "speed"
+      ],
       "codepoint": "1F3CE"
     },
     {
       "unicode": "🚓",
       "name": "police car",
       "category": "travel-places",
-      "keywords": ["police", "car", "vehicle", "cop"],
+      "keywords": [
+        "police",
+        "car",
+        "vehicle",
+        "cop"
+      ],
       "codepoint": "1F693"
     },
     {
       "unicode": "🚑",
       "name": "ambulance",
       "category": "travel-places",
-      "keywords": ["ambulance", "vehicle", "emergency"],
+      "keywords": [
+        "ambulance",
+        "vehicle",
+        "emergency"
+      ],
       "codepoint": "1F691"
     },
     {
       "unicode": "🚒",
       "name": "fire engine",
       "category": "travel-places",
-      "keywords": ["fire", "truck", "vehicle", "emergency"],
+      "keywords": [
+        "fire",
+        "truck",
+        "vehicle",
+        "emergency"
+      ],
       "codepoint": "1F692"
     },
     {
       "unicode": "🚐",
       "name": "minibus",
       "category": "travel-places",
-      "keywords": ["minibus", "vehicle", "van"],
+      "keywords": [
+        "minibus",
+        "vehicle",
+        "van"
+      ],
       "codepoint": "1F690"
     },
     {
       "unicode": "📱",
       "name": "mobile phone",
       "category": "objects",
-      "keywords": ["phone", "mobile", "cell", "smartphone"],
+      "keywords": [
+        "phone",
+        "mobile",
+        "cell",
+        "smartphone"
+      ],
       "codepoint": "1F4F1"
     },
     {
       "unicode": "💻",
       "name": "laptop computer",
       "category": "objects",
-      "keywords": ["laptop", "computer", "pc"],
+      "keywords": [
+        "laptop",
+        "computer",
+        "pc"
+      ],
       "codepoint": "1F4BB"
     },
     {
       "unicode": "🖥️",
       "name": "desktop computer",
       "category": "objects",
-      "keywords": ["desktop", "computer", "pc", "monitor"],
+      "keywords": [
+        "desktop",
+        "computer",
+        "pc",
+        "monitor"
+      ],
       "codepoint": "1F5A5"
     },
     {
       "unicode": "⌨️",
       "name": "keyboard",
       "category": "objects",
-      "keywords": ["keyboard", "computer", "type"],
+      "keywords": [
+        "keyboard",
+        "computer",
+        "type"
+      ],
       "codepoint": "2328"
     },
     {
       "unicode": "🖱️",
       "name": "computer mouse",
       "category": "objects",
-      "keywords": ["mouse", "computer", "click"],
+      "keywords": [
+        "mouse",
+        "computer",
+        "click"
+      ],
       "codepoint": "1F5B1"
     },
     {
       "unicode": "🖨️",
       "name": "printer",
       "category": "objects",
-      "keywords": ["printer", "print", "paper"],
+      "keywords": [
+        "printer",
+        "print",
+        "paper"
+      ],
       "codepoint": "1F5A8"
     },
     {
       "unicode": "📷",
       "name": "camera",
       "category": "objects",
-      "keywords": ["camera", "photo", "picture"],
+      "keywords": [
+        "camera",
+        "photo",
+        "picture"
+      ],
       "codepoint": "1F4F7"
     },
     {
       "unicode": "📹",
       "name": "video camera",
       "category": "objects",
-      "keywords": ["video", "camera", "record"],
+      "keywords": [
+        "video",
+        "camera",
+        "record"
+      ],
       "codepoint": "1F4F9"
     },
     {
       "unicode": "🎥",
       "name": "movie camera",
       "category": "objects",
-      "keywords": ["movie", "camera", "film"],
+      "keywords": [
+        "movie",
+        "camera",
+        "film"
+      ],
       "codepoint": "1F3A5"
     },
     {
       "unicode": "📞",
       "name": "telephone receiver",
       "category": "objects",
-      "keywords": ["phone", "telephone", "call"],
+      "keywords": [
+        "phone",
+        "telephone",
+        "call"
+      ],
       "codepoint": "1F4DE"
     },
     {
       "unicode": "❤️",
       "name": "red heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "red"],
+      "keywords": [
+        "heart",
+        "love",
+        "red"
+      ],
       "codepoint": "2764"
     },
     {
       "unicode": "🧡",
       "name": "orange heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "orange"],
+      "keywords": [
+        "heart",
+        "love",
+        "orange"
+      ],
       "codepoint": "1F9E1"
     },
     {
       "unicode": "💛",
       "name": "yellow heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "yellow"],
+      "keywords": [
+        "heart",
+        "love",
+        "yellow"
+      ],
       "codepoint": "1F49B"
     },
     {
       "unicode": "💚",
       "name": "green heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "green"],
+      "keywords": [
+        "heart",
+        "love",
+        "green"
+      ],
       "codepoint": "1F49A"
     },
     {
       "unicode": "💙",
       "name": "blue heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "blue"],
+      "keywords": [
+        "heart",
+        "love",
+        "blue"
+      ],
       "codepoint": "1F499"
     },
     {
       "unicode": "💜",
       "name": "purple heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "purple"],
+      "keywords": [
+        "heart",
+        "love",
+        "purple"
+      ],
       "codepoint": "1F49C"
     },
     {
       "unicode": "🖤",
       "name": "black heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "black"],
+      "keywords": [
+        "heart",
+        "love",
+        "black"
+      ],
       "codepoint": "1F5A4"
     },
     {
       "unicode": "🤍",
       "name": "white heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "white"],
+      "keywords": [
+        "heart",
+        "love",
+        "white"
+      ],
       "codepoint": "1F90D"
     },
     {
       "unicode": "🤎",
       "name": "brown heart",
       "category": "symbols",
-      "keywords": ["heart", "love", "brown"],
+      "keywords": [
+        "heart",
+        "love",
+        "brown"
+      ],
       "codepoint": "1F90E"
     },
     {
       "unicode": "💔",
       "name": "broken heart",
       "category": "symbols",
-      "keywords": ["heart", "broken", "sad"],
+      "keywords": [
+        "heart",
+        "broken",
+        "sad"
+      ],
       "codepoint": "1F494"
     },
     {
       "unicode": "🇺🇸",
       "name": "flag: United States",
       "category": "flags",
-      "keywords": ["flag", "united", "states", "america", "usa"],
+      "keywords": [
+        "flag",
+        "united",
+        "states",
+        "america",
+        "usa"
+      ],
       "codepoint": "1F1FA-1F1F8"
     },
     {
       "unicode": "🇬🇧",
       "name": "flag: United Kingdom",
       "category": "flags",
-      "keywords": ["flag", "united", "kingdom", "britain", "uk"],
+      "keywords": [
+        "flag",
+        "united",
+        "kingdom",
+        "britain",
+        "uk"
+      ],
       "codepoint": "1F1EC-1F1E7"
     },
     {
       "unicode": "🇨🇦",
       "name": "flag: Canada",
       "category": "flags",
-      "keywords": ["flag", "canada"],
+      "keywords": [
+        "flag",
+        "canada"
+      ],
       "codepoint": "1F1E8-1F1E6"
     },
     {
       "unicode": "🇫🇷",
       "name": "flag: France",
       "category": "flags",
-      "keywords": ["flag", "france"],
+      "keywords": [
+        "flag",
+        "france"
+      ],
       "codepoint": "1F1EB-1F1F7"
     },
     {
       "unicode": "🇩🇪",
       "name": "flag: Germany",
       "category": "flags",
-      "keywords": ["flag", "germany"],
+      "keywords": [
+        "flag",
+        "germany"
+      ],
       "codepoint": "1F1E9-1F1EA"
     },
     {
       "unicode": "🇯🇵",
       "name": "flag: Japan",
       "category": "flags",
-      "keywords": ["flag", "japan"],
+      "keywords": [
+        "flag",
+        "japan"
+      ],
       "codepoint": "1F1EF-1F1F5"
     },
     {
       "unicode": "🇨🇳",
       "name": "flag: China",
       "category": "flags",
-      "keywords": ["flag", "china"],
+      "keywords": [
+        "flag",
+        "china"
+      ],
       "codepoint": "1F1E8-1F1F3"
     },
     {
       "unicode": "🇮🇳",
       "name": "flag: India",
       "category": "flags",
-      "keywords": ["flag", "india"],
+      "keywords": [
+        "flag",
+        "india"
+      ],
       "codepoint": "1F1EE-1F1F3"
     },
     {
       "unicode": "🇧🇷",
       "name": "flag: Brazil",
       "category": "flags",
-      "keywords": ["flag", "brazil"],
+      "keywords": [
+        "flag",
+        "brazil"
+      ],
       "codepoint": "1F1E7-1F1F7"
     },
     {
       "unicode": "🇦🇺",
       "name": "flag: Australia",
       "category": "flags",
-      "keywords": ["flag", "australia"],
+      "keywords": [
+        "flag",
+        "australia"
+      ],
       "codepoint": "1F1E6-1F1FA"
+    },
+    {
+      "unicode": "😎",
+      "name": "smiling face with sunglasses",
+      "category": "smileys-emotion",
+      "keywords": ["cool", "sunglasses", "smile"],
+      "codepoint": "1F60E"
+    },
+    {
+      "unicode": "🤔",
+      "name": "thinking face",
+      "category": "smileys-emotion",
+      "keywords": ["thinking", "hmm", "consider"],
+      "codepoint": "1F914"
+    },
+    {
+      "unicode": "😴",
+      "name": "sleeping face",
+      "category": "smileys-emotion",
+      "keywords": ["sleep", "tired", "zzz"],
+      "codepoint": "1F634"
+    },
+    {
+      "unicode": "🤯",
+      "name": "exploding head",
+      "category": "smileys-emotion",
+      "keywords": ["mind blown", "shocked", "explosion"],
+      "codepoint": "1F92F"
+    },
+    {
+      "unicode": "🥳",
+      "name": "partying face",
+      "category": "smileys-emotion",
+      "keywords": ["party", "celebration", "hat"],
+      "codepoint": "1F973"
+    },
+    {
+      "unicode": "🤪",
+      "name": "zany face",
+      "category": "smileys-emotion",
+      "keywords": ["crazy", "silly", "tongue"],
+      "codepoint": "1F92A"
+    },
+    {
+      "unicode": "🥺",
+      "name": "pleading face",
+      "category": "smileys-emotion",
+      "keywords": ["puppy eyes", "please", "cute"],
+      "codepoint": "1F97A"
+    },
+    {
+      "unicode": "😭",
+      "name": "loudly crying face",
+      "category": "smileys-emotion",
+      "keywords": ["cry", "tears", "sad"],
+      "codepoint": "1F62D"
+    },
+    {
+      "unicode": "😤",
+      "name": "face with steam from nose",
+      "category": "smileys-emotion",
+      "keywords": ["angry", "mad", "steam"],
+      "codepoint": "1F624"
+    },
+    {
+      "unicode": "🙄",
+      "name": "face with rolling eyes",
+      "category": "smileys-emotion",
+      "keywords": ["eye roll", "annoyed", "whatever"],
+      "codepoint": "1F644"
+    },
+    {
+      "unicode": "🦄",
+      "name": "unicorn",
+      "category": "animals-nature",
+      "keywords": ["unicorn", "magical", "fantasy"],
+      "codepoint": "1F984"
+    },
+    {
+      "unicode": "🐸",
+      "name": "frog",
+      "category": "animals-nature",
+      "keywords": ["frog", "amphibian", "green"],
+      "codepoint": "1F438"
+    },
+    {
+      "unicode": "🦋",
+      "name": "butterfly",
+      "category": "animals-nature",
+      "keywords": ["butterfly", "insect", "beautiful"],
+      "codepoint": "1F98B"
+    },
+    {
+      "unicode": "🐝",
+      "name": "honeybee",
+      "category": "animals-nature",
+      "keywords": ["bee", "honey", "insect"],
+      "codepoint": "1F41D"
+    },
+    {
+      "unicode": "🐢",
+      "name": "turtle",
+      "category": "animals-nature",
+      "keywords": ["turtle", "slow", "reptile"],
+      "codepoint": "1F422"
+    },
+    {
+      "unicode": "🦆",
+      "name": "duck",
+      "category": "animals-nature",
+      "keywords": ["duck", "bird", "water"],
+      "codepoint": "1F986"
+    },
+    {
+      "unicode": "🐧",
+      "name": "penguin",
+      "category": "animals-nature",
+      "keywords": ["penguin", "bird", "cold"],
+      "codepoint": "1F427"
+    },
+    {
+      "unicode": "🦅",
+      "name": "eagle",
+      "category": "animals-nature",
+      "keywords": ["eagle", "bird", "freedom"],
+      "codepoint": "1F985"
+    },
+    {
+      "unicode": "🍕",
+      "name": "pizza",
+      "category": "food-drink",
+      "keywords": ["pizza", "food", "italian"],
+      "codepoint": "1F355"
+    },
+    {
+      "unicode": "🍔",
+      "name": "hamburger",
+      "category": "food-drink",
+      "keywords": ["burger", "food", "fast food"],
+      "codepoint": "1F354"
+    },
+    {
+      "unicode": "🍟",
+      "name": "french fries",
+      "category": "food-drink",
+      "keywords": ["fries", "food", "fast food"],
+      "codepoint": "1F35F"
+    },
+    {
+      "unicode": "🌮",
+      "name": "taco",
+      "category": "food-drink",
+      "keywords": ["taco", "mexican", "food"],
+      "codepoint": "1F32E"
+    },
+    {
+      "unicode": "🍣",
+      "name": "sushi",
+      "category": "food-drink",
+      "keywords": ["sushi", "japanese", "fish"],
+      "codepoint": "1F363"
+    },
+    {
+      "unicode": "🍜",
+      "name": "steaming bowl",
+      "category": "food-drink",
+      "keywords": ["ramen", "noodles", "hot"],
+      "codepoint": "1F35C"
+    },
+    {
+      "unicode": "🍰",
+      "name": "shortcake",
+      "category": "food-drink",
+      "keywords": ["cake", "dessert", "sweet"],
+      "codepoint": "1F370"
+    },
+    {
+      "unicode": "🍪",
+      "name": "cookie",
+      "category": "food-drink",
+      "keywords": ["cookie", "dessert", "sweet"],
+      "codepoint": "1F36A"
+    },
+    {
+      "unicode": "🍦",
+      "name": "soft ice cream",
+      "category": "food-drink",
+      "keywords": ["ice cream", "dessert", "cold"],
+      "codepoint": "1F366"
+    },
+    {
+      "unicode": "☕",
+      "name": "hot beverage",
+      "category": "food-drink",
+      "keywords": ["coffee", "tea", "hot"],
+      "codepoint": "2615"
+    },
+    {
+      "unicode": "🎮",
+      "name": "video game",
+      "category": "activities",
+      "keywords": ["gaming", "controller", "play"],
+      "codepoint": "1F3AE"
+    },
+    {
+      "unicode": "🎵",
+      "name": "musical note",
+      "category": "activities",
+      "keywords": ["music", "note", "sound"],
+      "codepoint": "1F3B5"
+    },
+    {
+      "unicode": "🎨",
+      "name": "artist palette",
+      "category": "activities",
+      "keywords": ["art", "paint", "creative"],
+      "codepoint": "1F3A8"
+    },
+    {
+      "unicode": "📚",
+      "name": "books",
+      "category": "activities",
+      "keywords": ["books", "reading", "study"],
+      "codepoint": "1F4DA"
+    },
+    {
+      "unicode": "🎬",
+      "name": "clapper board",
+      "category": "activities",
+      "keywords": ["movie", "film", "cinema"],
+      "codepoint": "1F3AC"
+    },
+    {
+      "unicode": "🏊",
+      "name": "person swimming",
+      "category": "activities",
+      "keywords": ["swimming", "pool", "water"],
+      "codepoint": "1F3CA"
+    },
+    {
+      "unicode": "🚴",
+      "name": "person biking",
+      "category": "activities",
+      "keywords": ["cycling", "bike", "exercise"],
+      "codepoint": "1F6B4"
+    },
+    {
+      "unicode": "🏃",
+      "name": "person running",
+      "category": "activities",
+      "keywords": ["running", "exercise", "fitness"],
+      "codepoint": "1F3C3"
+    },
+    {
+      "unicode": "✈️",
+      "name": "airplane",
+      "category": "travel-places",
+      "keywords": ["plane", "travel", "flight"],
+      "codepoint": "2708"
+    },
+    {
+      "unicode": "🚂",
+      "name": "locomotive",
+      "category": "travel-places",
+      "keywords": ["train", "railway", "transport"],
+      "codepoint": "1F682"
+    },
+    {
+      "unicode": "🚢",
+      "name": "ship",
+      "category": "travel-places",
+      "keywords": ["ship", "boat", "ocean"],
+      "codepoint": "1F6A2"
+    },
+    {
+      "unicode": "🏠",
+      "name": "house",
+      "category": "travel-places",
+      "keywords": ["house", "home", "building"],
+      "codepoint": "1F3E0"
+    },
+    {
+      "unicode": "🏖️",
+      "name": "beach with umbrella",
+      "category": "travel-places",
+      "keywords": ["beach", "vacation", "sun"],
+      "codepoint": "1F3D6"
+    },
+    {
+      "unicode": "🏔️",
+      "name": "snow-capped mountain",
+      "category": "travel-places",
+      "keywords": ["mountain", "snow", "nature"],
+      "codepoint": "1F3D4"
+    },
+    {
+      "unicode": "🌍",
+      "name": "globe showing Europe-Africa",
+      "category": "travel-places",
+      "keywords": ["earth", "world", "globe"],
+      "codepoint": "1F30D"
+    },
+    {
+      "unicode": "🌙",
+      "name": "crescent moon",
+      "category": "travel-places",
+      "keywords": ["moon", "night", "space"],
+      "codepoint": "1F319"
+    },
+    {
+      "unicode": "⭐",
+      "name": "star",
+      "category": "travel-places",
+      "keywords": ["star", "night", "space"],
+      "codepoint": "2B50"
+    },
+    {
+      "unicode": "🌈",
+      "name": "rainbow",
+      "category": "travel-places",
+      "keywords": ["rainbow", "colors", "weather"],
+      "codepoint": "1F308"
+    },
+    {
+      "unicode": "💎",
+      "name": "gem stone",
+      "category": "objects",
+      "keywords": ["diamond", "gem", "precious"],
+      "codepoint": "1F48E"
+    },
+    {
+      "unicode": "🔑",
+      "name": "key",
+      "category": "objects",
+      "keywords": ["key", "unlock", "access"],
+      "codepoint": "1F511"
+    },
+    {
+      "unicode": "💡",
+      "name": "light bulb",
+      "category": "objects",
+      "keywords": ["idea", "light", "bulb"],
+      "codepoint": "1F4A1"
+    },
+    {
+      "unicode": "📝",
+      "name": "memo",
+      "category": "objects",
+      "keywords": ["note", "write", "paper"],
+      "codepoint": "1F4DD"
+    },
+    {
+      "unicode": "✏️",
+      "name": "pencil",
+      "category": "objects",
+      "keywords": ["pencil", "write", "draw"],
+      "codepoint": "270F"
+    },
+    {
+      "unicode": "📖",
+      "name": "open book",
+      "category": "objects",
+      "keywords": ["book", "read", "open"],
+      "codepoint": "1F4D6"
+    },
+    {
+      "unicode": "🎁",
+      "name": "wrapped gift",
+      "category": "objects",
+      "keywords": ["gift", "present", "surprise"],
+      "codepoint": "1F381"
+    },
+    {
+      "unicode": "🕰️",
+      "name": "mantelpiece clock",
+      "category": "objects",
+      "keywords": ["clock", "time", "vintage"],
+      "codepoint": "1F570"
+    },
+    {
+      "unicode": "💰",
+      "name": "money bag",
+      "category": "objects",
+      "keywords": ["money", "bag", "wealth"],
+      "codepoint": "1F4B0"
+    },
+    {
+      "unicode": "🎯",
+      "name": "direct hit",
+      "category": "objects",
+      "keywords": ["target", "bullseye", "goal"],
+      "codepoint": "1F3AF"
+    },
+    {
+      "unicode": "✨",
+      "name": "sparkles",
+      "category": "symbols",
+      "keywords": ["sparkles", "magic", "shine"],
+      "codepoint": "2728"
+    },
+    {
+      "unicode": "🔥",
+      "name": "fire",
+      "category": "symbols",
+      "keywords": ["fire", "hot", "flame"],
+      "codepoint": "1F525"
+    },
+    {
+      "unicode": "💯",
+      "name": "hundred points",
+      "category": "symbols",
+      "keywords": ["100", "perfect", "score"],
+      "codepoint": "1F4AF"
+    },
+    {
+      "unicode": "💫",
+      "name": "dizzy",
+      "category": "symbols",
+      "keywords": ["dizzy", "stars", "sparkle"],
+      "codepoint": "1F4AB"
+    },
+    {
+      "unicode": "⚡",
+      "name": "high voltage",
+      "category": "symbols",
+      "keywords": ["lightning", "electric", "power"],
+      "codepoint": "26A1"
+    },
+    {
+      "unicode": "🌟",
+      "name": "glowing star",
+      "category": "symbols",
+      "keywords": ["star", "glow", "shine"],
+      "codepoint": "1F31F"
+    },
+    {
+      "unicode": "💥",
+      "name": "collision",
+      "category": "symbols",
+      "keywords": ["boom", "explosion", "impact"],
+      "codepoint": "1F4A5"
+    },
+    {
+      "unicode": "💢",
+      "name": "anger symbol",
+      "category": "symbols",
+      "keywords": ["anger", "mad", "symbol"],
+      "codepoint": "1F4A2"
+    },
+    {
+      "unicode": "💤",
+      "name": "zzz",
+      "category": "symbols",
+      "keywords": ["sleep", "zzz", "tired"],
+      "codepoint": "1F4A4"
+    },
+    {
+      "unicode": "💭",
+      "name": "thought balloon",
+      "category": "symbols",
+      "keywords": ["thought", "thinking", "bubble"],
+      "codepoint": "1F4AD"
+    },
+    {
+      "unicode": "🏳️‍🌈",
+      "name": "rainbow flag",
+      "category": "flags",
+      "keywords": ["pride", "rainbow", "lgbtq"],
+      "codepoint": "1F3F3-FE0F-200D-1F308"
+    },
+    {
+      "unicode": "🇪🇸",
+      "name": "flag: Spain",
+      "category": "flags",
+      "keywords": ["flag", "spain"],
+      "codepoint": "1F1EA-1F1F8"
+    },
+    {
+      "unicode": "🇮🇹",
+      "name": "flag: Italy",
+      "category": "flags",
+      "keywords": ["flag", "italy"],
+      "codepoint": "1F1EE-1F1F9"
+    },
+    {
+      "unicode": "🇰🇷",
+      "name": "flag: South Korea",
+      "category": "flags",
+      "keywords": ["flag", "south korea"],
+      "codepoint": "1F1F0-1F1F7"
+    },
+    {
+      "unicode": "🇷🇺",
+      "name": "flag: Russia",
+      "category": "flags",
+      "keywords": ["flag", "russia"],
+      "codepoint": "1F1F7-1F1FA"
     }
   ]
 }

@@ -18,6 +18,10 @@ const AppState = {
 
 // Global instances
 let copyFeedbackManager = null;
+let categoryNavigation = null;
+let emojiGrid = null;
+let themeManager = null;
+let recentlyUsedManager = null;
 
 // DOM element references
 const DOMElements = {
@@ -119,13 +123,62 @@ function initializeComponents() {
         return;
     }
     
+    if (typeof CategoryNavigation === 'undefined') {
+        console.error('CategoryNavigation not found!');
+        showNotification('CategoryNavigation not loaded', 'error');
+        return;
+    }
+    
+    if (typeof EmojiGrid === 'undefined') {
+        console.error('EmojiGrid not found!');
+        showNotification('EmojiGrid not loaded', 'error');
+        return;
+    }
+    
+    if (typeof ThemeManager === 'undefined') {
+        console.error('ThemeManager not found!');
+        showNotification('ThemeManager not loaded', 'error');
+        return;
+    }
+    
+    if (typeof RecentlyUsedManager === 'undefined') {
+        console.error('RecentlyUsedManager not found!');
+        showNotification('RecentlyUsedManager not loaded', 'error');
+        return;
+    }
+    
     try {
+        // Initialize theme manager first (affects visual appearance)
+        themeManager = new ThemeManager();
+        console.log('ThemeManager initialized successfully');
+        
+        // Initialize recently used manager
+        recentlyUsedManager = new RecentlyUsedManager(
+            DOMElements.recentlyUsedList,
+            handleEmojiClick
+        );
+        console.log('RecentlyUsedManager initialized successfully');
         // Initialize copy feedback manager
         copyFeedbackManager = new CopyFeedbackManager();
         console.log('CopyFeedbackManager initialized successfully');
+        
+        // Initialize emoji grid
+        emojiGrid = new EmojiGrid(
+            DOMElements.emojiGrid,
+            handleEmojiClick
+        );
+        console.log('EmojiGrid initialized successfully');
+        
+        // Initialize category navigation
+        categoryNavigation = new CategoryNavigation(
+            DOMElements.categoryButtons,
+            handleCategoryChange
+        );
+        console.log('CategoryNavigation initialized successfully');
+        
     } catch (error) {
-        console.error('Failed to initialize CopyFeedbackManager:', error);
-        showNotification('Failed to initialize copy system', 'error');
+        console.error('Failed to initialize components:', error);
+        showNotification('Failed to initialize application components', 'error');
     }
     
     // Placeholder for other component initialization
@@ -136,14 +189,48 @@ function initializeComponents() {
 }
 
 /**
- * Handle search functionality (placeholder)
+ * Handle search functionality
  */
 function handleSearch(query) {
     console.log('Search query:', query);
     AppState.searchQuery = query;
     
-    // Placeholder for search implementation
-    // This will be implemented in future tasks
+    // Update emoji grid filter
+    if (emojiGrid) {
+        emojiGrid.filterBySearch(query);
+    }
+}
+
+/**
+ * Handle category change from navigation
+ * @param {string} categoryId - Selected category ID
+ * @param {string} previousCategoryId - Previously selected category ID
+ */
+function handleCategoryChange(categoryId, previousCategoryId) {
+    console.log(`Category changed from ${previousCategoryId} to ${categoryId}`);
+    AppState.currentCategory = categoryId;
+    
+    // Update emoji grid filter
+    if (emojiGrid) {
+        emojiGrid.filterByCategory(categoryId);
+    }
+}
+
+/**
+ * Handle emoji click from grid
+ * @param {string} emoji - Emoji unicode
+ * @param {string} name - Emoji name
+ */
+async function handleEmojiClick(emoji, name) {
+    console.log(`Emoji clicked: ${emoji} (${name})`);
+    
+    // Copy emoji to clipboard
+    const success = await copyEmojiWithFeedback(emoji, name);
+    
+    if (success && recentlyUsedManager) {
+        // Add to recently used
+        recentlyUsedManager.addEmoji(emoji, name);
+    }
 }
 
 /**
@@ -175,107 +262,11 @@ function handleWindowResize() {
 function showPlaceholderContent() {
     console.log('Showing placeholder content...');
     
-    // Add actual emojis to the grid for testing clipboard functionality
-    if (DOMElements.emojiGrid) {
-        console.log('Adding emojis to emoji grid');
-        
-        // Sample emojis for testing
-        const sampleEmojis = [
-            { emoji: '😀', name: 'grinning face' },
-            { emoji: '😃', name: 'grinning face with big eyes' },
-            { emoji: '😄', name: 'grinning face with smiling eyes' },
-            { emoji: '😁', name: 'beaming face with smiling eyes' },
-            { emoji: '😆', name: 'grinning squinting face' },
-            { emoji: '😅', name: 'grinning face with sweat' },
-            { emoji: '🤣', name: 'rolling on the floor laughing' },
-            { emoji: '😂', name: 'face with tears of joy' },
-            { emoji: '🙂', name: 'slightly smiling face' },
-            { emoji: '🙃', name: 'upside down face' },
-            { emoji: '😉', name: 'winking face' },
-            { emoji: '😊', name: 'smiling face with smiling eyes' },
-            { emoji: '😇', name: 'smiling face with halo' },
-            { emoji: '🥰', name: 'smiling face with hearts' },
-            { emoji: '😍', name: 'smiling face with heart-eyes' },
-            { emoji: '🤩', name: 'star-struck' },
-            { emoji: '😘', name: 'face blowing a kiss' },
-            { emoji: '😗', name: 'kissing face' },
-            { emoji: '😚', name: 'kissing face with closed eyes' },
-            { emoji: '😙', name: 'kissing face with smiling eyes' },
-            { emoji: '❤️', name: 'red heart' },
-            { emoji: '🧡', name: 'orange heart' },
-            { emoji: '💛', name: 'yellow heart' },
-            { emoji: '💚', name: 'green heart' },
-            { emoji: '💙', name: 'blue heart' },
-            { emoji: '💜', name: 'purple heart' },
-            { emoji: '🖤', name: 'black heart' },
-            { emoji: '🤍', name: 'white heart' },
-            { emoji: '🤎', name: 'brown heart' },
-            { emoji: '💔', name: 'broken heart' },
-            { emoji: '💕', name: 'two hearts' },
-            { emoji: '💖', name: 'sparkling heart' },
-            { emoji: '💗', name: 'growing heart' },
-            { emoji: '💘', name: 'heart with arrow' },
-            { emoji: '💝', name: 'heart with ribbon' },
-            { emoji: '💟', name: 'heart decoration' },
-            { emoji: '🎉', name: 'party popper' },
-            { emoji: '🎊', name: 'confetti ball' },
-            { emoji: '🎈', name: 'balloon' },
-            { emoji: '🎁', name: 'wrapped gift' },
-            { emoji: '🎂', name: 'birthday cake' },
-            { emoji: '🎄', name: 'Christmas tree' },
-            { emoji: '🚀', name: 'rocket' },
-            { emoji: '✨', name: 'sparkles' },
-            { emoji: '🌟', name: 'glowing star' },
-            { emoji: '⭐', name: 'star' },
-            { emoji: '🔥', name: 'fire' },
-            { emoji: '💯', name: 'hundred points' }
-        ];
-        
-        // Create emoji buttons
-        const emojiButtons = sampleEmojis.map(({emoji, name}) => 
-            `<button class="emoji-button" onclick="testCopyEmoji('${emoji}', '${name}')" title="${name}">${emoji}</button>`
-        ).join('');
-        
-        DOMElements.emojiGrid.innerHTML = emojiButtons;
-        console.log('Emoji grid populated with', sampleEmojis.length, 'emojis');
-    } else {
-        console.error('Emoji grid element not found!');
-    }
-    
-    // Add placeholder message to recently used section
-    if (DOMElements.recentlyUsedList) {
-        DOMElements.recentlyUsedList.innerHTML = `
-            <div style="padding: 1rem; color: #6b7280; font-style: italic;">
-                Recently used emojis will appear here
-            </div>
-        `;
-    }
-    
-    // Add placeholder category buttons
-    if (DOMElements.categoryButtons) {
-        DOMElements.categoryButtons.innerHTML = `
-            <div style="padding: 1rem; color: #6b7280; font-style: italic;">
-                Category navigation will be added in upcoming tasks
-            </div>
-        `;
-    }
+    // Recently used section will be populated by RecentlyUsedManager
+    // Emoji grid and category buttons will be populated by their respective components
 }
 
-/**
- * Test function for copying emojis (used by placeholder buttons)
- * @param {string} emoji - The emoji to copy
- * @param {string} name - The name of the emoji
- */
-async function testCopyEmoji(emoji, name) {
-    console.log(`Testing copy for emoji: ${emoji} (${name})`);
-    
-    if (copyFeedbackManager) {
-        await copyEmojiWithFeedback(emoji, name);
-    } else {
-        console.warn('Copy system not ready, showing fallback message');
-        showNotification(`Would copy ${emoji} (${name}) - Copy system not ready`, 'warning');
-    }
-}
+
 
 /**
  * Utility function to show notifications
@@ -335,7 +326,13 @@ window.EmojiCopyApp = {
     showNotification,
     copyEmojiWithFeedback,
     handleError,
+    handleCategoryChange,
+    handleEmojiClick,
     AppState,
     DOMElements,
-    getCopyFeedbackManager: () => copyFeedbackManager
+    getCopyFeedbackManager: () => copyFeedbackManager,
+    getCategoryNavigation: () => categoryNavigation,
+    getEmojiGrid: () => emojiGrid,
+    getThemeManager: () => themeManager,
+    getRecentlyUsedManager: () => recentlyUsedManager
 };
