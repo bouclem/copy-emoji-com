@@ -175,6 +175,38 @@ img {
     padding: 1rem 0;
 }
 
+/* Emoji Button Styles */
+.emoji-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+    background: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.emoji-button:hover {
+    background: #f3f4f6;
+    border-color: #6366f1;
+    transform: scale(1.05);
+}
+
+.emoji-button:active {
+    transform: scale(0.95);
+    background: #e5e7eb;
+}
+
+.emoji-button:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
 /* Notification Styles */
 .notification {
     position: fixed;
@@ -190,6 +222,8 @@ img {
     transition: all 0.3s ease;
     z-index: 1000;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    word-wrap: break-word;
 }
 
 .notification.show {
@@ -197,8 +231,43 @@ img {
     opacity: 1;
 }
 
+.notification.success {
+    background-color: #10b981;
+}
+
 .notification.error {
     background-color: #ef4444;
+}
+
+.notification.warning {
+    background-color: #f59e0b;
+}
+
+.notification.info {
+    background-color: #3b82f6;
+}
+
+/* Notification animations */
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
 }
 
 /* Responsive Design */

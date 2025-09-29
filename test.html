@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clipboard Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-button {
+            padding: 1rem;
+            margin: 0.5rem;
+            background: #6366f1;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+        .test-button:hover {
+            background: #5855eb;
+        }
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            max-width: 300px;
+            word-wrap: break-word;
+        }
+        .notification.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        .notification.error {
+            background-color: #ef4444;
+        }
+        .notification.warning {
+            background-color: #f59e0b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clipboard Functionality Test</h1>
+    <p>This page tests the clipboard functionality we implemented.</p>
+    
+    <div>
+        <h2>Test Buttons:</h2>
+        <button class="test-button" onclick="testCopy('😀', 'grinning face')">😀</button>
+        <button class="test-button" onclick="testCopy('❤️', 'red heart')">❤️</button>
+        <button class="test-button" onclick="testCopy('🎉', 'party popper')">🎉</button>
+        <button class="test-button" onclick="testCopy('🚀', 'rocket')">🚀</button>
+    </div>
+    
+    <div id="log" style="margin-top: 2rem; padding: 1rem; background: #f3f4f6; border-radius: 0.5rem;">
+        <h3>Debug Log:</h3>
+        <div id="log-content"></div>
+    </div>
+    
+    <div class="notification" id="notification"></div>
+    
+    <script src="js/clipboard-manager.js"></script>
+    <script src="js/notification-system.js"></script>
+    <script>
+        let copyFeedbackManager = null;
+        
+        function log(message) {
+            const logContent = document.getElementById('log-content');
+            const timestamp = new Date().toLocaleTimeString();
+            logContent.innerHTML += `<div>[${timestamp}] ${message}</div>`;
+            console.log(message);
+        }
+        
+        function initTest() {
+            log('Initializing test page...');
+            
+            if (typeof ClipboardManager === 'undefined') {
+                log('❌ ClipboardManager not found!');
+                return;
+            }
+            log('✅ ClipboardManager loaded');
+            
+            if (typeof CopyFeedbackManager === 'undefined') {
+                log('❌ CopyFeedbackManager not found!');
+                return;
+            }
+            log('✅ CopyFeedbackManager loaded');
+            
+            try {
+                copyFeedbackManager = new CopyFeedbackManager();
+                log('✅ CopyFeedbackManager initialized');
+            } catch (error) {
+                log(`❌ Failed to initialize CopyFeedbackManager: ${error.message}`);
+            }
+        }
+        
+        async function testCopy(emoji, name) {
+            log(`Testing copy for: ${emoji} (${name})`);
+            
+            if (copyFeedbackManager) {
+                try {
+                    const success = await copyFeedbackManager.copyEmojiWithFeedback(emoji, name);
+                    log(`Copy result: ${success ? 'success' : 'failed'}`);
+                } catch (error) {
+                    log(`Copy error: ${error.message}`);
+                }
+            } else {
+                log('❌ CopyFeedbackManager not available');
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initTest);
+    </script>
+</body>
+</html>

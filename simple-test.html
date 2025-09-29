@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Emoji Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 2rem; }
+        .emoji-btn { 
+            padding: 1rem; 
+            margin: 0.5rem; 
+            background: #6366f1; 
+            color: white; 
+            border: none; 
+            border-radius: 0.5rem; 
+            cursor: pointer; 
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Emoji Copy Test</h1>
+    <p>Click an emoji to copy it:</p>
+    
+    <button class="emoji-btn" onclick="copyEmoji('😀')">😀</button>
+    <button class="emoji-btn" onclick="copyEmoji('❤️')">❤️</button>
+    <button class="emoji-btn" onclick="copyEmoji('🎉')">🎉</button>
+    <button class="emoji-btn" onclick="copyEmoji('🚀')">🚀</button>
+    
+    <div id="status" style="margin-top: 1rem; padding: 1rem; background: #f0f0f0;"></div>
+    
+    <script>
+        function updateStatus(message) {
+            document.getElementById('status').innerHTML = message;
+            console.log(message);
+        }
+        
+        async function copyEmoji(emoji) {
+            updateStatus(`Attempting to copy: ${emoji}`);
+            
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(emoji);
+                    updateStatus(`✅ Successfully copied: ${emoji}`);
+                } else {
+                    // Fallback method
+                    const textarea = document.createElement('textarea');
+                    textarea.value = emoji;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    const success = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    
+                    if (success) {
+                        updateStatus(`✅ Successfully copied (fallback): ${emoji}`);
+                    } else {
+                        updateStatus(`❌ Failed to copy: ${emoji}`);
+                    }
+                }
+            } catch (error) {
+                updateStatus(`❌ Error copying ${emoji}: ${error.message}`);
+            }
+        }
+        
+        updateStatus('Ready to copy emojis!');
+    </script>
+</body>
+</html>
