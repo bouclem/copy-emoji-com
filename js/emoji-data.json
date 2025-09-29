@@ -1,0 +1,144 @@
+{
+  "emojis": [
+    {
+      "unicode": "😀",
+      "name": "grinning face",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "grin", "joy"],
+      "codepoint": "1F600"
+    },
+    {
+      "unicode": "😃",
+      "name": "grinning face with big eyes",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "grin", "joy", "excited"],
+      "codepoint": "1F603"
+    },
+    {
+      "unicode": "😄",
+      "name": "grinning face with smiling eyes",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "grin", "joy", "laugh"],
+      "codepoint": "1F604"
+    },
+    {
+      "unicode": "😁",
+      "name": "beaming face with smiling eyes",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "grin", "joy", "cheerful"],
+      "codepoint": "1F601"
+    },
+    {
+      "unicode": "😆",
+      "name": "grinning squinting face",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "laugh", "satisfied"],
+      "codepoint": "1F606"
+    },
+    {
+      "unicode": "😅",
+      "name": "grinning face with sweat",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "relief", "nervous"],
+      "codepoint": "1F605"
+    },
+    {
+      "unicode": "🤣",
+      "name": "rolling on the floor laughing",
+      "category": "smileys-emotion",
+      "keywords": ["laugh", "funny", "hilarious", "rofl"],
+      "codepoint": "1F923"
+    },
+    {
+      "unicode": "😂",
+      "name": "face with tears of joy",
+      "category": "smileys-emotion",
+      "keywords": ["laugh", "cry", "funny", "tears"],
+      "codepoint": "1F602"
+    },
+    {
+      "unicode": "🙂",
+      "name": "slightly smiling face",
+      "category": "smileys-emotion",
+      "keywords": ["smile", "happy", "content"],
+      "codepoint": "1F642"
+    },
+    {
+      "unicode": "🙃",
+      "name": "upside-down face",
+      "category": "smileys-emotion",
+      "keywords": ["silly", "sarcastic", "ironic"],
+      "codepoint": "1F643"
+    },
+    {
+      "unicode": "😉",
+      "name": "winking face",
+      "category": "smileys-emotion",
+      "keywords": ["wink", "flirt", "playful"],
+      "codepoint": "1F609"
+    },
+    {
+      "unicode": "😊",
+      "name": "smiling face with smiling eyes",
+      "category": "smileys-emotion",
+      "keywords": ["happy", "smile", "blush", "content"],
+      "codepoint": "1F60A"
+    },
+    {
+      "unicode": "😇",
+      "name": "smiling face with halo",
+      "category": "smileys-emotion",
+      "keywords": ["angel", "innocent", "good"],
+      "codepoint": "1F607"
+    },
+    {
+      "unicode": "🥰",
+      "name": "smiling face with hearts",
+      "category": "smileys-emotion",
+      "keywords": ["love", "hearts", "adore", "crush"],
+      "codepoint": "1F970"
+    },
+    {
+      "unicode": "😍",
+      "name": "smiling face with heart-eyes",
+      "category": "smileys-emotion",
+      "keywords": ["love", "heart", "eyes", "adore"],
+      "codepoint": "1F60D"
+    },
+    {
+      "unicode": "🤩",
+      "name": "star-struck",
+      "category": "smileys-emotion",
+      "keywords": ["star", "eyes", "amazed", "wow"],
+      "codepoint": "1F929"
+    },
+    {
+      "unicode": "😘",
+      "name": "face blowing a kiss",
+      "category": "smileys-emotion",
+      "keywords": ["kiss", "love", "heart"],
+      "codepoint": "1F618"
+    },
+    {
+      "unicode": "😗",
+      "name": "kissing face",
+      "category": "smileys-emotion",
+      "keywords": ["kiss", "love", "lips"],
+      "codepoint": "1F617"
+    },
+    {
+      "unicode": "☺️",
+      "name": "smiling face",
+      "category": "smileys-emotion",
+      "keywords": ["smile", "happy", "content"],
+      "codepoint": "263A"
+    },
+    {
+      "unicode": "😚",
+      "name": "kissing face with closed eyes",
+      "category": "smileys-emotion",
+      "keywords": ["kiss", "love", "closed", "eyes"],
+      "codepoint": "1F61A"
+    }
+  ]
+}

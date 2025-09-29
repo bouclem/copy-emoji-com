@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emoji Copy - Easy Emoji Clipboard Tool</title>
+    <meta name="description" content="Browse, search, and copy emojis to your clipboard easily. Organized by categories with recently used emojis.">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1 class="logo">
+                <span class="logo-emoji">😊</span>
+                Emoji Copy
+            </h1>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="search-input" 
+                    placeholder="Search emojis..."
+                    aria-label="Search emojis by name or keyword"
+                >
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="recently-used" id="recently-used-section" aria-label="Recently used emojis">
+                <h2 class="section-title">Recently Used</h2>
+                <div class="emoji-list" id="recently-used-list" role="list">
+                    <!-- Recently used emojis will be populated here -->
+                </div>
+            </section>
+
+            <section class="categories" aria-label="Emoji categories">
+                <nav class="category-nav" role="navigation" aria-label="Emoji category navigation">
+                    <div class="category-buttons" id="category-buttons">
+                        <!-- Category buttons will be populated here -->
+                    </div>
+                </nav>
+            </section>
+
+            <section class="emoji-grid-section" aria-label="Emoji grid">
+                <div class="emoji-grid" id="emoji-grid" role="grid" aria-label="Available emojis">
+                    <!-- Emoji grid will be populated here -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="notification" id="notification" role="alert" aria-live="polite">
+        <!-- Notification messages will appear here -->
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
